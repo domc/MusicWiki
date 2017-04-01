@@ -16,7 +16,7 @@ namespace MusicWikiAPI.Controllers
 
         // GET
         // ..api/Bands
-        public IQueryable<BandDTO> Get()
+        public HttpResponseMessage Get()
         {
             var bands = from b in entities.bands
                         select new BandDTO() {
@@ -24,12 +24,12 @@ namespace MusicWikiAPI.Controllers
                             name = b.name
                         };
 
-            return bands;
+            return Request.CreateResponse<IEnumerable<BandDTO>>(HttpStatusCode.OK, bands);
         }
 
         // GET
         // ..api/Bands/1
-        public BandDetailDTO Get(int id)
+        public HttpResponseMessage Get(int id)
         {
             var band = entities.bands.Select(b =>
                        new BandDetailDTO()
@@ -40,8 +40,14 @@ namespace MusicWikiAPI.Controllers
                            genre = b.genre,
                            formationDate = b.formationDate
                        }).SingleOrDefault(b => b.id == id);
-
-            return band;
+            if (band == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Vnos ne obstaja.");
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, band);
+            }
         }
 
         // POST
