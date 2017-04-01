@@ -2,6 +2,7 @@
 using MusicWikiAPI.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -13,6 +14,7 @@ namespace MusicWikiAPI.Controllers
     {
         musicwikiEntities entities = new musicwikiEntities();
 
+        // GET
         // ..api/Bands
         public IQueryable<BandDTO> Get()
         {
@@ -25,7 +27,8 @@ namespace MusicWikiAPI.Controllers
             return bands;
         }
 
-        // ..api/Bands/0
+        // GET
+        // ..api/Bands/1
         public BandDetailDTO Get(int id)
         {
             var band = entities.bands.Select(b =>
@@ -39,6 +42,44 @@ namespace MusicWikiAPI.Controllers
                        }).SingleOrDefault(b => b.id == id);
 
             return band;
+        }
+
+        // POST
+        // ..api/Bands/
+        public void Post(BandDetailDTO band)
+        {
+            band bandLib = new band
+            {
+                name = band.name,
+                country = band.country,
+                genre = band.genre,
+                formationDate = band.formationDate
+            };
+            entities.bands.Add(bandLib);
+            entities.SaveChanges();
+        }
+
+        // PUT
+        // ..api/Bands/1
+        public void Put(int id, BandDetailDTO band)
+        {
+            band bandLib = entities.bands.Find(id);
+            bandLib.name = band.name;
+            bandLib.country = band.country;
+            bandLib.genre = band.genre;
+            bandLib.formationDate = band.formationDate;
+
+            entities.Entry(bandLib).State = EntityState.Modified;
+            entities.SaveChanges();
+        }
+
+        // DELETE
+        // ..api/Bands/1
+        public void Delete(int id)
+        {
+            band bandLib = entities.bands.Find(id);
+            entities.bands.Remove(bandLib);
+            entities.SaveChanges();
         }
     }
 }
