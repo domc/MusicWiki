@@ -9,6 +9,12 @@ namespace MusicWikiAPI.Models
     {
         public int id { get; set; }
         public string name { get; set; }
+    }
+
+    public class BandDetailDTO
+    {
+        public int id { get; set; }
+        public string name { get; set; }
         public string country { get; set; }
         public System.DateTime formationDate { get; set; }
         public string genre { get; set; }
