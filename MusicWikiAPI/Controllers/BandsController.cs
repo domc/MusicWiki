@@ -54,18 +54,25 @@ namespace MusicWikiAPI.Controllers
         // ..api/Bands/
         public HttpResponseMessage Post(BandDetailDTO band)
         {
-            band bandLib = new band
+            if (ModelState.IsValid)
             {
-                name = band.name,
-                country = band.country,
-                genre = band.genre,
-                formationDate = band.formationDate
-            };
-            entities.bands.Add(bandLib);
-            entities.SaveChanges();
+                band bandLib = new band
+                {
+                    name = band.name,
+                    country = band.country,
+                    genre = band.genre,
+                    formationDate = band.formationDate
+                };
+                entities.bands.Add(bandLib);
+                entities.SaveChanges();
 
-            band.id = bandLib.id;
-            return Request.CreateResponse(HttpStatusCode.Created, band);
+                band.id = bandLib.id;
+                return Request.CreateResponse(HttpStatusCode.Created, band);
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
         }
 
         // PUT
