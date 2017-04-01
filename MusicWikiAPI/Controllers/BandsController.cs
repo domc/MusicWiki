@@ -52,7 +52,7 @@ namespace MusicWikiAPI.Controllers
 
         // POST
         // ..api/Bands/
-        public void Post(BandDetailDTO band)
+        public HttpResponseMessage Post(BandDetailDTO band)
         {
             band bandLib = new band
             {
@@ -63,6 +63,9 @@ namespace MusicWikiAPI.Controllers
             };
             entities.bands.Add(bandLib);
             entities.SaveChanges();
+
+            band.id = bandLib.id;
+            return Request.CreateResponse(HttpStatusCode.Created, band);
         }
 
         // PUT
