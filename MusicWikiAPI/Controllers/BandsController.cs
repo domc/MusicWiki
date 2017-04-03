@@ -20,6 +20,7 @@ namespace MusicWikiAPI.Controllers
         [ResponseType(typeof(IEnumerable<BandDTO>))]
         public IHttpActionResult Get()
         {
+            //Set up return model(list)
             var bands = from b in entities.bands
                         select new BandDTO() {
                             id = b.id,
@@ -34,6 +35,7 @@ namespace MusicWikiAPI.Controllers
         [ResponseType(typeof(BandDetailDTO))]
         public IHttpActionResult Get(int id)
         {
+            //Set up return model with LINQ
             var band = entities.bands.Select(b =>
                        new BandDetailDTO()
                        {
@@ -97,6 +99,7 @@ namespace MusicWikiAPI.Controllers
         {
             if (ModelState.IsValid)
             {
+                //Find and update the band
                 band bandLib = entities.bands.Find(band.id);
                 if (bandLib != null)
                 {
@@ -126,6 +129,7 @@ namespace MusicWikiAPI.Controllers
         [ResponseType(typeof(BandDTO))]
         public IHttpActionResult Delete(int id)
         {
+            //Find and delete the band, return BandDto model of deleted entry
             band bandLib = entities.bands.Find(id);
             if (bandLib != null)
             {
