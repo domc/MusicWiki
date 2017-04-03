@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace MusicWikiAPI.Controllers
 {
@@ -16,7 +17,8 @@ namespace MusicWikiAPI.Controllers
 
         // GET
         // ..api/Bands
-        public HttpResponseMessage Get()
+        [ResponseType(typeof(IEnumerable<BandDTO>))]
+        public IHttpActionResult Get()
         {
             var bands = from b in entities.bands
                         select new BandDTO() {
@@ -24,12 +26,13 @@ namespace MusicWikiAPI.Controllers
                             name = b.name
                         };
 
-            return Request.CreateResponse<IEnumerable<BandDTO>>(HttpStatusCode.OK, bands);
+            return Ok(bands);  // ==Request.CreateResponse<IEnumerable<BandDTO>>(HttpStatusCode.OK, bands);
         }
 
         // GET
         // ..api/Bands/1
-        public HttpResponseMessage Get(int id)
+        [ResponseType(typeof(BandDetailDTO))]
+        public IHttpActionResult Get(int id)
         {
             var band = entities.bands.Select(b =>
                        new BandDetailDTO()
@@ -42,42 +45,55 @@ namespace MusicWikiAPI.Controllers
                        }).SingleOrDefault(b => b.id == id);
             if (band == null)
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Band not found in our DB.");
+                return NotFound();
             }
             else
             {
-                return Request.CreateResponse(HttpStatusCode.OK, band);
+                return Ok(band);
             }
         }
 
         // POST
         // ..api/Bands/
-        public HttpResponseMessage Post(BandDetailDTO band)
+        [ResponseType(typeof(BandDetailDTO))]
+        public IHttpActionResult Post(BandCreateDTO bandPost)
         {
             if (ModelState.IsValid)
             {
+                //Create enty in DB
                 band bandLib = new band
                 {
-                    name = band.name,
-                    country = band.country,
-                    genre = band.genre,
-                    formationDate = band.formationDate
+                    name = bandPost.name,
+                    country = bandPost.country,
+                    genre = bandPost.genre,
+                    formationDate = bandPost.formationDate
                 };
                 entities.bands.Add(bandLib);
                 entities.SaveChanges();
 
-                band.id = bandLib.id;
-                return Request.CreateResponse(HttpStatusCode.Created, band);
+                //Set up return model
+                BandDetailDTO band = new BandDetailDTO
+                {
+                    name = bandLib.name,
+                    country = bandLib.country,
+                    genre = bandLib.genre,
+                    formationDate = bandLib.formationDate,
+                    id = bandLib.id
+                };
+
+                //Return status created + new path(Location)
+                return CreatedAtRoute("DefaultApi", new { id = band.id }, band );
             }
             else
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                return BadRequest(ModelState);
             }
         }
 
         // PUT
-        // ..api/Bands/1
-        public HttpResponseMessage Put(BandDetailDTO band)
+        // ..api/Bands
+        [ResponseType(typeof(BandDetailDTO))]
+        public IHttpActionResult Put(BandDetailDTO band)
         {
             if (ModelState.IsValid)
             {
@@ -92,34 +108,41 @@ namespace MusicWikiAPI.Controllers
                     entities.Entry(bandLib).State = EntityState.Modified;
                     entities.SaveChanges();
 
-                    return Request.CreateResponse(HttpStatusCode.OK, band);
+                    return Ok(band);
                 }
                 else
                 {
-                    return Request.CreateResponse(HttpStatusCode.NotFound, "Band not found in our DB.");
+                    return NotFound();
                 }
             }
             else
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                return BadRequest(ModelState);
             }
         }
 
         // DELETE
         // ..api/Bands/1
-        public HttpResponseMessage Delete(int id)
+        [ResponseType(typeof(BandDTO))]
+        public IHttpActionResult Delete(int id)
         {
             band bandLib = entities.bands.Find(id);
             if (bandLib != null)
             {
+                var band = new BandDTO()
+                {
+                    id = bandLib.id,
+                    name = bandLib.name
+                };
+
                 entities.bands.Remove(bandLib);
                 entities.SaveChanges();
 
-                return Request.CreateResponse(HttpStatusCode.OK, bandLib);
+                return Ok(band);
             }
             else
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Band not found in our DB.");
+                return NotFound();
             }
         }
     }
