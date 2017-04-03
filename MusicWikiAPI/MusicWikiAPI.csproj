@@ -111,6 +111,7 @@
     </Compile>
     <Compile Include="Models\BandMemberModels.cs" />
     <Compile Include="Models\BandModels.cs" />
+    <Compile Include="MyExceptionAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

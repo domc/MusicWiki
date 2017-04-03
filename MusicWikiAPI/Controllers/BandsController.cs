@@ -36,33 +36,23 @@ namespace MusicWikiAPI.Controllers
         [ResponseType(typeof(BandDetailDTO))]
         public IHttpActionResult Get(int id)
         {
-            try
+            //Set up return model with LINQ
+            var band = entities.bands.Select(b =>
+                        new BandDetailDTO()
+                        {
+                            id = b.id,
+                            name = b.name,
+                            country = b.country,
+                            genre = b.genre,
+                            formationDate = b.formationDate
+                        }).SingleOrDefault(b => b.id == id);
+            if (band == null)
             {
-                //Set up return model with LINQ
-                var band = entities.bands.Select(b =>
-                           new BandDetailDTO()
-                           {
-                               id = b.id,
-                               name = b.name,
-                               country = b.country,
-                               genre = b.genre,
-                               formationDate = b.formationDate
-                           }).SingleOrDefault(b => b.id == id);
-                if (band == null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    return Ok(band);
-                }
+                return NotFound();
             }
-            catch (Exception e)
+            else
             {
-                //Prepare and return exception message
-                HttpResponseMessage msgResponse = new HttpResponseMessage(HttpStatusCode.BadGateway);
-                msgResponse.ReasonPhrase = e.Message;
-                throw new HttpResponseException(msgResponse);
+                return Ok(band);
             }
         }
 

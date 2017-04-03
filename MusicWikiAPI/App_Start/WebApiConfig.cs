@@ -19,6 +19,9 @@ namespace MusicWikiAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            //Global registration of the exception filter
+            config.Filters.Add(new MyExceptionAttribute());
         }
     }
 }
