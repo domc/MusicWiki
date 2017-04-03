@@ -107,11 +107,20 @@ namespace MusicWikiAPI.Controllers
 
         // DELETE
         // ..api/Bands/1
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
             band bandLib = entities.bands.Find(id);
-            entities.bands.Remove(bandLib);
-            entities.SaveChanges();
+            if (bandLib != null)
+            {
+                entities.bands.Remove(bandLib);
+                entities.SaveChanges();
+
+                return Request.CreateResponse(HttpStatusCode.OK, bandLib);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Band not found in our DB.");
+            }
         }
     }
 }
