@@ -134,11 +134,22 @@ namespace MusicWikiAPI.Controllers
             band bandLib = entities.bands.Find(id);
             if (bandLib != null)
             {
+                //Set up the return model
                 var band = new BandDTO()
                 {
                     id = bandLib.id,
                     name = bandLib.name
                 };
+
+                //Remove band members first
+                var members = entities.members.Where(m => m.bandId == bandLib.id);
+                if (members != null)
+                {
+                    foreach (member m in members)
+                    {
+                        entities.members.Remove(m);
+                    }
+                }
 
                 entities.bands.Remove(bandLib);
                 entities.SaveChanges();

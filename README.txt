@@ -6,7 +6,6 @@ Goal: simple app containing info on bands and their concerts built with Web API 
 /* TO-DO */
 
 API
-- implement delete operations(check FK constraints) on bands+members
 - add albums, concerts...
 
 ANGULAR:
