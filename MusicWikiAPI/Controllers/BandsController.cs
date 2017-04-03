@@ -42,7 +42,7 @@ namespace MusicWikiAPI.Controllers
                        }).SingleOrDefault(b => b.id == id);
             if (band == null)
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Vnos ne obstaja.");
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Band not found in our DB.");
             }
             else
             {
@@ -77,16 +77,32 @@ namespace MusicWikiAPI.Controllers
 
         // PUT
         // ..api/Bands/1
-        public void Put(int id, BandDetailDTO band)
+        public HttpResponseMessage Put(BandDetailDTO band)
         {
-            band bandLib = entities.bands.Find(id);
-            bandLib.name = band.name;
-            bandLib.country = band.country;
-            bandLib.genre = band.genre;
-            bandLib.formationDate = band.formationDate;
+            if (ModelState.IsValid)
+            {
+                band bandLib = entities.bands.Find(band.id);
+                if (bandLib != null)
+                {
+                    bandLib.name = band.name;
+                    bandLib.country = band.country;
+                    bandLib.genre = band.genre;
+                    bandLib.formationDate = band.formationDate;
 
-            entities.Entry(bandLib).State = EntityState.Modified;
-            entities.SaveChanges();
+                    entities.Entry(bandLib).State = EntityState.Modified;
+                    entities.SaveChanges();
+
+                    return Request.CreateResponse(HttpStatusCode.OK, band);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, "Band not found in our DB.");
+                }
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
         }
 
         // DELETE
