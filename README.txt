@@ -7,6 +7,7 @@ Goal: simple app containing info on bands and their concerts built with Web API 
 
 API
 - add albums, concerts...
+- security
 
 ANGULAR:
 - everything
