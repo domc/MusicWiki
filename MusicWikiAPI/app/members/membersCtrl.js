@@ -1,4 +1,4 @@
-﻿angular.module("MyApp")
+﻿angular.module("MusicWikiApp")
    .controller("membersCtrl", ['$scope', 'membersService', function ($scope, membersService) {
        $scope.pageTitle = 'List of members';
        getAllMembers();

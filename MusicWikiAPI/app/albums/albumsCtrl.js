@@ -1,4 +1,4 @@
-﻿angular.module("MyApp")
+﻿angular.module("MusicWikiApp")
    .controller("albumsCtrl", ['$scope', function ($scope) {
 
        var headOffice = {

@@ -105,6 +105,7 @@
     <Content Include="app\bands\bandsService.js" />
     <Content Include="app\members\members.html" />
     <Content Include="app\members\membersCtrl.js" />
+    <Content Include="app\members\membersService.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

@@ -1,7 +1,12 @@
-﻿angular.module("MyApp")
+﻿angular.module("MusicWikiApp")
    .controller("bandsCtrl", ['$scope', 'bandsService', function ($scope, bandsService) {
        $scope.pageTitle = 'List of all bands';
-       getAllBends();
+       $scope.sortBy = "name"; //default sorting by name
+       $scope.sortDescending = false; // default ascending
+       $scope.searchText = ''; // default blank
+
+       
+       getAllBends(); // retrieve all bands from db
 
        function getAllBends() {
            var servCall = bandsService.getBands();

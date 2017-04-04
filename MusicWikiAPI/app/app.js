@@ -1,4 +1,4 @@
-﻿angular.module('MyApp', ['ui.router'])
+﻿angular.module('MusicWikiApp', ['ui.router'])
   .config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
 
       // default route
