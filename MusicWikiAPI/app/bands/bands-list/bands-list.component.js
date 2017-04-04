@@ -1,7 +1,7 @@
 ﻿angular.module('bandsList')
 	.component('bandsList', {
 		templateUrl: 'app/bands/bands-list/bands-list.template.html',
-		controller: function BandsListController(bandsService) {
+		controller: ['bandsService', function BandsListController(bandsService) {
 			this.sortBy = "name"; //default sorting by name
 			this.sortDescending = false; // default ascending
 			this.searchText = ''; // default blank
@@ -16,5 +16,5 @@
 					controller.error('Oops! Something went wrong while fetching the data.');
 				});
 			}
-		}
+		}]
 	});

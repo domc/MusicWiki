@@ -1,3 +1,3 @@
-﻿MusicWikiApp.controller("bandsCtrl", ['$scope', 'bandsService', function ($scope, bandsService) {
+﻿MusicWikiApp.controller("bandsCtrl", ['$scope', function ($scope) {
     $scope.pageTitle = 'List of all bands';
 }]);
