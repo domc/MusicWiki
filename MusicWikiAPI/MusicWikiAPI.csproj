@@ -100,12 +100,14 @@
     <Content Include="app\albums\albums.html" />
     <Content Include="app\albums\albumsCtrl.js" />
     <Content Include="app\app.js" />
-    <Content Include="app\bands\bands-list.template.html" />
+    <Content Include="app\bands\bands-list\bands-list.module.js" />
+    <Content Include="app\bands\bands-list\bands-list.template.html" />
     <Content Include="app\bands\bands.html" />
     <Content Include="app\bands\bandsCtrl.js" />
     <Content Include="app\bands\bandsService.js" />
-    <Content Include="app\members\members-list.component.js" />
-    <Content Include="app\members\members-list.template.html" />
+    <Content Include="app\members\members-list\members-list.component.js" />
+    <Content Include="app\members\members-list\members-list.module.js" />
+    <Content Include="app\members\members-list\members-list.template.html" />
     <Content Include="app\members\members.html" />
     <Content Include="app\members\membersCtrl.js" />
     <Content Include="app\members\membersService.js" />
@@ -884,7 +886,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="app\bands\bands-list.component.js" />
+    <Content Include="app\bands\bands-list\bands-list.component.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />

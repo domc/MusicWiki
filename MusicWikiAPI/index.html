@@ -16,7 +16,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a ui-sref="bands" class="navbar-brand">Authentication</a>
+                <a ui-sref="bands" class="navbar-brand">MusicWiki</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -36,13 +36,23 @@
     <script src="Scripts/jquery-3.1.1.min.js"></script>
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-ui-router.js"></script>
+
+    <!-- My scripts -->
+    <!-- App -->
     <script src="app/app.js"></script>
+
+    <!-- Bands -->
     <script src="app/bands/bandsCtrl.js"></script>
+    <script src="app/bands/bands-list/bands-list.module.js"></script>
     <script src="app/bands/bandsService.js"></script>
-    <script src="app/bands/bands-list.component.js"></script>
+    <script src="app/bands/bands-list/bands-list.component.js"></script>
+
+    <!-- Musicians -->
     <script src="app/members/membersCtrl.js"></script>
+    <script src="app/members/members-list/members-list.module.js"></script>
     <script src="app/members/membersService.js"></script>
-    <script src="app/members/members-list.component.js"></script>
+    <script src="app/members/members-list/members-list.component.js"></script>
+
     <script src="app/albums/albumsCtrl.js"></script>
 </body>
 </html>
