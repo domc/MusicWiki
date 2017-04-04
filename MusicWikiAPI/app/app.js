@@ -2,6 +2,7 @@
 var MusicWikiApp = angular.module('MusicWikiApp', [
         'ui.router',
         'bandsList',
+        'bandDetail',
         'membersList'
 ]);
 
@@ -12,14 +13,20 @@ MusicWikiApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRoute
 
       $stateProvider
           .state('bands', {
-              url: '/',
-              templateUrl: 'app/bands/bands.html',
-              controller: 'bandsCtrl'
+              url: '/bands',
+              template: '<bands-list></bands-list>'
           })
+            .state('bands.detail', {
+                url: '/:id',
+                views: {
+                    '@': {
+                        template: '<band-detail></band-detail>'
+                    }
+                },
+            })
           .state('members', {
               url: '/members',
-              templateUrl: 'app/members/members.html',
-              controller: 'membersCtrl'
+              template: '<members-list></members-list>'
           })
           .state('albums', {
               url: '/albums',
