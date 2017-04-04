@@ -1,8 +1,12 @@
 ﻿<h1 ng-bind="pageTitle"></h1>
-<p>
-    We are trying to learn the angularjs ui routing, really a very powerful,
-    easy and interesting topic. Which we will extend to use the web api,
-    entity framework to fetch the data from databasee..
-</p>
-<h2>Message from controller</h2>
-<p ng-bind="message"></p>
+
+<table class="table table-hover ">
+    <tr class="alert-success">
+        <th>ID</th>
+        <th>Band</th>
+    </tr>
+    <tr ng-repeat="band in bands">
+        <td ng-bind="band.id"></td>
+        <td ng-bind="band.name"></td>
+    </tr>
+</table>
