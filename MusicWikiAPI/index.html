@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>MusicWIki app with angular UI routing</title>
+
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />    
+</head>
+<body ng-app="MyApp">
+
+    <div class="navbar navbar-inverse navbar-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a sref="home" class="navbar-brand">Authentication</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref='bands'>Bands</a></li>
+                    <li><a ui-sref='members'>Members</a></li>
+                    <li><a ui-sref='albums'>Albums</a></li>
+                </ul>
+                <!--<ng-include src="'app/views/loginpartial.html'"></ng-include>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <div ui-view></div>
+    </div>
+
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/bands/bandsCtrl.js"></script>
+    <script src="app/members/membersCtrl.js"></script>
+    <script src="app/albums/albumsCtrl.js"></script>
+</body>
+</html>
