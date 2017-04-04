@@ -1,29 +1,3 @@
 ﻿<h1 ng-bind="pageTitle"></h1>
 
-<!-- Table with the data -->
-<table class="table table-hover">
-    <tr class="alert-success">
-        <th>
-            <a ng-click="sortBy = 'id'; sortDescending = !sortDescending">Id</a>
-            <span ng-show="sortBy == 'id' && !sortDescending" class="glyphicon glyphicon-chevron-down"></span>
-            <span ng-show="sortBy == 'id' && sortDescending" class="glyphicon glyphicon-chevron-up"></span>
-        </th>
-        <th>
-            <a ng-click="sortBy='name'; sortDescending = !sortDescending">Band</a>
-            <span ng-show="sortBy == 'name' && !sortDescending" class="glyphicon glyphicon-chevron-down"></span>
-            <span ng-show="sortBy == 'name' && sortDescending" class="glyphicon glyphicon-chevron-up"></span>
-        </th>
-    </tr>
-    <tr ng-repeat="band in bands | filter: searchText | orderBy:sortBy:sortDescending">
-        <td ng-bind="band.id"></td>
-        <td ng-bind="band.name"></td>
-    </tr>
-</table>
-
-<!-- Search textbox -->
-<div class="input-group">
-    <input type="text" ng-model="searchText" class="form-control" placeholder="Enter search text" />
-    <span class="input-group-addon" id="basic-addon1">
-        <i class="glyphicon glyphicon-search"></i>
-    </span>
-</div>
+<bands-list></bands-list>

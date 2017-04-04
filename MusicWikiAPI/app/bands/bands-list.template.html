@@ -1,0 +1,28 @@
+﻿<table class="table table-hover">
+    <tr class="alert-success">
+        <th>
+            <a ng-click="$ctrl.sortBy = 'id'; $ctrl.sortDescending = !$ctrl.sortDescending">Id</a>
+            <span ng-show="$ctrl.sortBy == 'id' && !$ctrl.sortDescending" class="glyphicon glyphicon-chevron-down"></span>
+            <span ng-show="$ctrl.sortBy == 'id' && $ctrl.sortDescending" class="glyphicon glyphicon-chevron-up"></span>
+        </th>
+        <th>
+            <a ng-click="$ctrl.sortBy='name'; $ctrl.sortDescending = !$ctrl.sortDescending">Band</a>
+            <span ng-show="$ctrl.sortBy == 'name' && !$ctrl.sortDescending" class="glyphicon glyphicon-chevron-down"></span>
+            <span ng-show="$ctrl.sortBy == 'name' && $ctrl.sortDescending" class="glyphicon glyphicon-chevron-up"></span>
+        </th>
+    </tr>
+    <tr ng-repeat="band in $ctrl.bands | filter: $ctrl.searchText | orderBy:$ctrl.sortBy:$ctrl.sortDescending">
+        <td ng-bind="band.id"></td>
+        <td ng-bind="band.name"></td>
+    </tr>
+</table>
+
+<!-- Search textbox -->
+<div class="input-group">
+    <input type="text" ng-model="$ctrl.searchText" class="form-control" placeholder="Enter search text" />
+    <span class="input-group-addon" id="basic-addon1">
+        <i class="glyphicon glyphicon-search"></i>
+    </span>
+</div>
+
+<p class="alert-danger" ng-bind="$ctrl.error"></p>
