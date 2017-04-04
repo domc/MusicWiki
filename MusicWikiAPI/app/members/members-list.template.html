@@ -1,0 +1,40 @@
+﻿<table class="table table-hover ">
+    <tr class="alert-success">
+        <th>
+            <a ng-click="$ctrl.sortBy='id'; $ctrl.sortDescending = !$ctrl.sortDescending">Id</a>
+            <span ng-show="$ctrl.sortBy == 'id' && !$ctrl.sortDescending" class="glyphicon glyphicon-chevron-down"></span>
+            <span ng-show="$ctrl.sortBy == 'id' && $ctrl.sortDescending" class="glyphicon glyphicon-chevron-up"></span>
+        </th>
+        <th>
+            <a ng-click="$ctrl.sortBy='firstName'; $ctrl.sortDescending = !$ctrl.sortDescending">Name</a>
+            <span ng-show="$ctrl.sortBy == 'firstName' && !$ctrl.sortDescending" class="glyphicon glyphicon-chevron-down"></span>
+            <span ng-show="$ctrl.sortBy == 'firstName' && $ctrl.sortDescending" class="glyphicon glyphicon-chevron-up"></span>
+        </th>
+        <th>
+            <a ng-click="$ctrl.sortBy='lastName'; $ctrl.sortDescending = !$ctrl.sortDescending">Surname</a>
+            <span ng-show="$ctrl.sortBy == 'lastName' && !$ctrl.sortDescending" class="glyphicon glyphicon-chevron-down"></span>
+            <span ng-show="$ctrl.sortBy == 'lastName' && $ctrl.sortDescending" class="glyphicon glyphicon-chevron-up"></span>
+        </th>
+        <th>
+            <a ng-click="$ctrl.sortBy='band'; $ctrl.sortDescending = !$ctrl.sortDescending">Band</a>
+            <span ng-show="$ctrl.sortBy == 'band' && !$ctrl.sortDescending" class="glyphicon glyphicon-chevron-down"></span>
+            <span ng-show="$ctrl.sortBy == 'band' && $ctrl.sortDescending" class="glyphicon glyphicon-chevron-up"></span>
+        </th>
+    </tr>
+    <tr ng-repeat="member in $ctrl.members | filter:$ctrl.searchText | orderBy:$ctrl.sortBy:$ctrl.sortDescending">
+        <td ng-bind="member.id"></td>
+        <td ng-bind="member.firstName"></td>
+        <td ng-bind="member.lastName"></td>
+        <td ng-bind="member.band"></td>
+    </tr>
+</table>
+
+<!-- Search textbox -->
+<div class="input-group">
+    <input type="text" ng-model="$ctrl.searchText" class="form-control" placeholder="Enter search text" />
+    <span class="input-group-addon" id="basic-addon2">
+        <i class="glyphicon glyphicon-search"></i>
+    </span>
+</div>
+
+<p class="alert-danger" ng-bind="$ctrl.error"></p>

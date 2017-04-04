@@ -104,6 +104,8 @@
     <Content Include="app\bands\bands.html" />
     <Content Include="app\bands\bandsCtrl.js" />
     <Content Include="app\bands\bandsService.js" />
+    <Content Include="app\members\members-list.component.js" />
+    <Content Include="app\members\members-list.template.html" />
     <Content Include="app\members\members.html" />
     <Content Include="app\members\membersCtrl.js" />
     <Content Include="app\members\membersService.js" />
@@ -930,7 +932,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\directives\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
