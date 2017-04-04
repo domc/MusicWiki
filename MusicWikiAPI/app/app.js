@@ -1,5 +1,7 @@
-﻿angular.module('MusicWikiApp', ['ui.router'])
-  .config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
+﻿//Define the app module
+var MusicWikiApp = angular.module('MusicWikiApp', ['ui.router']);
+
+MusicWikiApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
 
       // default route
       $urlRouterProvider.otherwise('/');
