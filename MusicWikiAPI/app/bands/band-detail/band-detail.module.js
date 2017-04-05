@@ -1,2 +1,2 @@
 ﻿//Definition of the module
-angular.module('bandDetail', ['ui.router']);
+angular.module('bandDetail', ['ui.router', 'ngResource']);

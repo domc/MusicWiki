@@ -1,8 +1,9 @@
-﻿MusicWikiApp.service("bandsService", function ($http) {
-    this.getBands = function () {
-        return $http.get("/api/Bands")
-    };
-    this.getBandDetails = function (id) {
-        return $http.get("/api/Bands/" + id);
-    };
-});
+﻿MusicWikiApp.factory('Band',[ '$resource', function ($resource) {
+    return $resource('/api/bands/:bandId', {}, {
+        query: {
+            method: 'GET',
+            params: { bandId: "" },
+            isArray: true
+        }
+    });
+}]);

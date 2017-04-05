@@ -1,7 +1,7 @@
 ﻿MusicWikiApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
 
       // default route
-      $urlRouterProvider.otherwise('/');
+      $urlRouterProvider.otherwise('/bands');
 
       $stateProvider
           .state('bands', {

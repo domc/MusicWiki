@@ -1,5 +1,9 @@
-﻿MusicWikiApp.service("membersService", function ($http) {
-    this.getMembers = function () {
-        return $http.get("/api/members")
-    }
-});
+﻿MusicWikiApp.factory('Member', ['$resource', function ($resource) {
+    return $resource('/api/members/:memberId', {}, {
+        query: {
+            method: 'GET',
+            params: { memberId: "" },
+            isArray: true
+        }
+    });
+}]);

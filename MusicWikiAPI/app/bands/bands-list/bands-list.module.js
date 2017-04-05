@@ -1,2 +1,2 @@
 ﻿//Definition od the module
-angular.module('bandsList', []);
+angular.module('bandsList', ['ngResource']);
