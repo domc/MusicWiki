@@ -102,6 +102,7 @@
     <Content Include="app\app.js" />
     <Content Include="app\bands\band-detail\band-detail.component.js" />
     <Content Include="app\bands\band-detail\band-detail.module.js" />
+    <Content Include="app\bands\band-detail\band-detail.template.html" />
     <Content Include="app\bands\bands-list\bands-list.module.js" />
     <Content Include="app\bands\bands-list\bands-list.template.html" />
     <Content Include="app\bands\bandsService.js" />

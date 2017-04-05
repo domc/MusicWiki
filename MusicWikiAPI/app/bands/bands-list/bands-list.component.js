@@ -13,7 +13,7 @@
 				servCall.then(function (d) {
 					controller.bands=d.data;
 				}, function (error) {
-					controller.error('Oops! Something went wrong while fetching the data.');
+					controller.error='Oops! Something went wrong while fetching the data.';
 				});
 			}
 		}]
