@@ -20,6 +20,14 @@
               url: '/members',
               template: '<members-list></members-list>'
           })
+          .state('members.detail', {
+              url: '/:id',
+              views: {
+                  '@': {
+                      template: '<member-detail></member-detail>'
+                  }
+              },
+          })
           .state('albums', {
               url: '/albums',
               templateUrl: 'app/albums/albums.html',

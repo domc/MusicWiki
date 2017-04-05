@@ -4,5 +4,6 @@ var MusicWikiApp = angular.module('MusicWikiApp', [
         'ngResource',
         'bandsList',
         'bandDetail',
-        'membersList'
+        'membersList',
+        'memberDetail'
 ]);

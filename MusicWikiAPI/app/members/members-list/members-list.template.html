@@ -25,7 +25,7 @@
     </tr>
     <tr ng-repeat="member in $ctrl.members | filter:$ctrl.searchText | orderBy:$ctrl.sortBy:$ctrl.sortDescending">
         <td ng-bind="member.id"></td>
-        <td ng-bind="member.firstName"></td>
+        <td><a ui-sref="members.detail( {id : member.id} )" ng-bind="member.firstName"></a></td>
         <td ng-bind="member.lastName"></td>
         <td ng-bind="member.band"></td>
     </tr>

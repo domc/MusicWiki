@@ -106,6 +106,9 @@
     <Content Include="app\bands\bands-list\bands-list.module.js" />
     <Content Include="app\bands\bands-list\bands-list.template.html" />
     <Content Include="app\bands\bandsService.js" />
+    <Content Include="app\members\member-detail\member-detail.component.js" />
+    <Content Include="app\members\member-detail\member-detail.module.js" />
+    <Content Include="app\members\member-detail\member-detail.template.html" />
     <Content Include="app\members\members-list\members-list.component.js" />
     <Content Include="app\members\members-list\members-list.module.js" />
     <Content Include="app\members\members-list\members-list.template.html" />
