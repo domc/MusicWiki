@@ -1,12 +1,4 @@
-﻿//Define the app module and dependencies
-var MusicWikiApp = angular.module('MusicWikiApp', [
-        'ui.router',
-        'bandsList',
-        'bandDetail',
-        'membersList'
-]);
-
-MusicWikiApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
+﻿MusicWikiApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
 
       // default route
       $urlRouterProvider.otherwise('/');
