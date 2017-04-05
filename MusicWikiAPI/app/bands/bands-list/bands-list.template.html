@@ -4,13 +4,13 @@
     <tr>
         <th>
             <a ng-click="$ctrl.sortBy = 'id'; $ctrl.sortDescending = !$ctrl.sortDescending">Id</a>
-            <span ng-show="$ctrl.sortBy == 'id' && !$ctrl.sortDescending" class="glyphicon glyphicon-chevron-down"></span>
-            <span ng-show="$ctrl.sortBy == 'id' && $ctrl.sortDescending" class="glyphicon glyphicon-chevron-up"></span>
+            <span ng-show="$ctrl.sortBy == 'id' && !$ctrl.sortDescending" class="fa fa-arrow-down"></span>
+            <span ng-show="$ctrl.sortBy == 'id' && $ctrl.sortDescending" class="fa fa-arrow-up"></span>
         </th>
         <th>
             <a ng-click="$ctrl.sortBy='name'; $ctrl.sortDescending = !$ctrl.sortDescending">Band</a>
-            <span ng-show="$ctrl.sortBy == 'name' && !$ctrl.sortDescending" class="glyphicon glyphicon-chevron-down"></span>
-            <span ng-show="$ctrl.sortBy == 'name' && $ctrl.sortDescending" class="glyphicon glyphicon-chevron-up"></span>
+            <span ng-show="$ctrl.sortBy == 'name' && !$ctrl.sortDescending" class="fa fa-arrow-down"></span>
+            <span ng-show="$ctrl.sortBy == 'name' && $ctrl.sortDescending" class="fa fa-arrow-up"></span>
         </th>
     </tr>
     <tr ng-repeat="band in $ctrl.bands | filter: $ctrl.searchText | orderBy:$ctrl.sortBy:$ctrl.sortDescending">
@@ -23,7 +23,7 @@
 <div class="input-group">
     <input type="text" ng-model="$ctrl.searchText" class="form-control" placeholder="Enter search text" />
     <span class="input-group-addon">
-        <i class="glyphicon glyphicon-search"></i>
+        <i class="fa fa-search"></i>
     </span>
 </div>
 

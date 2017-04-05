@@ -1,26 +1,26 @@
 ﻿<h2>List of all musicians</h2>
 
-<table class="table table-hover ">
-    <tr class="alert-success">
+<table class="table table-hover table-inverse">
+    <tr>
         <th>
             <a ng-click="$ctrl.sortBy='id'; $ctrl.sortDescending = !$ctrl.sortDescending">Id</a>
-            <span ng-show="$ctrl.sortBy == 'id' && !$ctrl.sortDescending" class="glyphicon glyphicon-chevron-down"></span>
-            <span ng-show="$ctrl.sortBy == 'id' && $ctrl.sortDescending" class="glyphicon glyphicon-chevron-up"></span>
+            <span ng-show="$ctrl.sortBy == 'id' && !$ctrl.sortDescending" class="fa fa-arrow-down"></span>
+            <span ng-show="$ctrl.sortBy == 'id' && $ctrl.sortDescending" class="fa fa-arrow-up"></span>
         </th>
         <th>
             <a ng-click="$ctrl.sortBy='firstName'; $ctrl.sortDescending = !$ctrl.sortDescending">Name</a>
-            <span ng-show="$ctrl.sortBy == 'firstName' && !$ctrl.sortDescending" class="glyphicon glyphicon-chevron-down"></span>
-            <span ng-show="$ctrl.sortBy == 'firstName' && $ctrl.sortDescending" class="glyphicon glyphicon-chevron-up"></span>
+            <span ng-show="$ctrl.sortBy == 'firstName' && !$ctrl.sortDescending" class="fa fa-arrow-down"></span>
+            <span ng-show="$ctrl.sortBy == 'firstName' && $ctrl.sortDescending" class="fa fa-arrow-up"></span>
         </th>
         <th>
             <a ng-click="$ctrl.sortBy='lastName'; $ctrl.sortDescending = !$ctrl.sortDescending">Surname</a>
-            <span ng-show="$ctrl.sortBy == 'lastName' && !$ctrl.sortDescending" class="glyphicon glyphicon-chevron-down"></span>
-            <span ng-show="$ctrl.sortBy == 'lastName' && $ctrl.sortDescending" class="glyphicon glyphicon-chevron-up"></span>
+            <span ng-show="$ctrl.sortBy == 'lastName' && !$ctrl.sortDescending" class="fa fa-arrow-down"></span>
+            <span ng-show="$ctrl.sortBy == 'lastName' && $ctrl.sortDescending" class="fa fa-arrow-up"></span>
         </th>
         <th>
             <a ng-click="$ctrl.sortBy='band'; $ctrl.sortDescending = !$ctrl.sortDescending">Band</a>
-            <span ng-show="$ctrl.sortBy == 'band' && !$ctrl.sortDescending" class="glyphicon glyphicon-chevron-down"></span>
-            <span ng-show="$ctrl.sortBy == 'band' && $ctrl.sortDescending" class="glyphicon glyphicon-chevron-up"></span>
+            <span ng-show="$ctrl.sortBy == 'band' && !$ctrl.sortDescending" class="fa fa-arrow-down"></span>
+            <span ng-show="$ctrl.sortBy == 'band' && $ctrl.sortDescending" class="fa fa-arrow-up"></span>
         </th>
     </tr>
     <tr ng-repeat="member in $ctrl.members | filter:$ctrl.searchText | orderBy:$ctrl.sortBy:$ctrl.sortDescending">
@@ -35,7 +35,7 @@
 <div class="input-group">
     <input type="text" ng-model="$ctrl.searchText" class="form-control" placeholder="Enter search text" />
     <span class="input-group-addon" id="basic-addon2">
-        <i class="glyphicon glyphicon-search"></i>
+        <i class="fa fa-search"></i>
     </span>
 </div>
 
