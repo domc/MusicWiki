@@ -12,3 +12,12 @@
     <input type="text" class="form-control" id="formationDate" placeholder="Enter band's formation date" required data-ng-model="$ctrl.formationDate" />
 </div>
 <button type="button" class="btn btn-default" data-ng-click="$ctrl.saveBand();">Submit</button>
+
+<script>
+  $( function() {
+      $("#formationDate").datepicker({
+          changeMonth: true,
+          changeYear: true
+      });
+  } );
+</script>
