@@ -1,0 +1,14 @@
+﻿<div class="form-group">
+    <label for="bandName">Band's name</label>
+    <input type="text" class="form-control" id="bandName" placeholder="Enter band's name" required data-ng-model="$ctrl.bandName" />
+
+    <label for="country">Band's country</label>
+    <input type="text" class="form-control" id="country" placeholder="Enter band's country" required data-ng-model="$ctrl.country" />
+
+    <label for="genre">Band's genre</label>
+    <input type="text" class="form-control" id="genre" placeholder="Enter band's genre" required data-ng-model="$ctrl.genre" />
+
+    <label for="formationDate">Band's formation date</label>
+    <input type="text" class="form-control" id="formationDate" placeholder="Enter band's formation date" required data-ng-model="$ctrl.formationDate" />
+</div>
+<button type="button" class="btn btn-default" data-ng-click="$ctrl.saveBand();">Submit</button>
