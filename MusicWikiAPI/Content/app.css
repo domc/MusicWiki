@@ -1,11 +1,13 @@
 ﻿body {
     background: url("/Content/Images/squared_metal.png") repeat;
 }
-
 .body-content {
     padding: 15px;
 }
 
+a:hover {
+    text-decoration: none;
+}
 th a {
     cursor: pointer;
 }
