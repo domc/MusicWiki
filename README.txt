@@ -1,6 +1,6 @@
 /* ABOUT */
 
-Goal: simple app containing info on bands and their concerts built with Web API 2 and Angular.
+Goal: simple app containing info on bands and their concerts built with Web API 2 and Angular, MySQL db.
 
 
 /* TO-DO */
