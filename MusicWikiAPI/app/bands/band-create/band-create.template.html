@@ -1,23 +1,53 @@
-﻿<div class="form-group">
-    <label for="bandName">Band's name</label>
-    <input type="text" class="form-control" id="bandName" placeholder="Enter band's name" required data-ng-model="$ctrl.bandName" />
+﻿<h2>Add a band</h2>
+<hr />
 
-    <label for="country">Band's country</label>
-    <input type="text" class="form-control" id="country" placeholder="Enter band's country" required data-ng-model="$ctrl.country" />
+<div class="container">
+    <form id="createForm" name="createForm" novalidate ng-submit="$ctrl.saveBand()">
+        <div class="form-group row">
+            <label for="bandName" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="bandName" name="bandName" placeholder="Enter band's name" required data-ng-model="$ctrl.bandName" />                
+            </div>
+            <span class="col-sm-4 alert alert-danger" role="alert" ng-show="createForm.bandName.$touched && createForm.bandName.$error.required">Please enter the band's name.</span>
+        </div>
 
-    <label for="genre">Band's genre</label>
-    <input type="text" class="form-control" id="genre" placeholder="Enter band's genre" required data-ng-model="$ctrl.genre" />
+        <div class="form-group row">
+            <label for="country" class="col-sm-2 col-form-label">Country</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="country" name="country" placeholder="Enter band's home country" required data-ng-model="$ctrl.country" />
+            </div>  
+            <span class="col-sm-4 alert alert-danger" role="alert" ng-show="createForm.country.$touched && createForm.country.$error.required">Please enter the band's home country.</span>      
+        </div>
 
-    <label for="formationDate">Band's formation date</label>
-    <input type="text" class="form-control" id="formationDate" placeholder="Enter band's formation date" required data-ng-model="$ctrl.formationDate" />
+        <div class="form-group row">
+            <label for="genre" class="col-sm-2 col-form-label">Genre</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="genre" name="genre" placeholder="Enter band's genre" required data-ng-model="$ctrl.genre" />
+            </div>
+            <span class="col-sm-4 alert alert-danger" role="alert" ng-show="createForm.genre.$touched && createForm.genre.$error.required">Please enter the band's genre.</span>
+        </div>
+
+        <div class="form-group row">
+            <label for="formationDate" class="col-sm-2 col-form-label">Formation date</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="formationDate" name="formationDate" placeholder="Enter band's formation date" required data-ng-model="$ctrl.formationDate" />
+            </div>        
+            <span class="col-sm-4 alert alert-danger" role="alert" ng-show="createForm.formationDate.$touched && createForm.formationDate.$error.required">Please enter the band's formation date.</span>
+        </div>
+
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+                <button id="submitBtn" type="submit" class="btn btn-secondary" ng-disabled="createForm.$invalid">Submit</button>
+            </div>        
+        </div>
+    </form>
 </div>
-<button type="button" class="btn btn-secondary" data-ng-click="$ctrl.saveBand();">Submit</button>
 
 <script>
-  $( function() {
-      $("#formationDate").datepicker({
-          changeMonth: true,
-          changeYear: true
-      });
-  } );
+    $(function () {
+        $("#formationDate").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
 </script>
