@@ -1,13 +1,25 @@
 /* ABOUT */
 
-Goal: simple app containing info on bands and their concerts built with Web API 2 and Angular, MySQL db.
+Goal: simple app containing info on bands and their concerts built with MySQL db, Web API 2 and AngularJS.
+
+
+/* CURRENT STATE */
+
+ANGULAR:
+- get, post, delete operations on bands
+- get operations on musicians in db 
 
 
 /* TO-DO */
 
-API
+API (and db)
+- expand db tables
 - add albums, concerts...
 - security
 
 ANGULAR:
-- everything
+- update bands
+- css
+  .
+  .
+  .
